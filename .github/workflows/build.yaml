@@ -18,7 +18,7 @@ jobs:
         java-version: 11
         cache: maven
     #### AUFGABE 2: SONAR
-      # hier ist der Platz für die Konfiguration der Sonar Analyse
+      # hier ist der Platz für die Konfiguration der Sonar Analyse lol
   
     - name: Compile, build and push
       run: |
