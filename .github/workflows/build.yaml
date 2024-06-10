@@ -22,5 +22,9 @@ jobs:
   
     - name: Compile, build and push
       run: |
+        mvn package
+        docker build --tag ghcr.io/bettercodepaul/petclinic:latest -f Dockerfile .
+        docker login --username jny-gk --password $GITHUB_ACCESSTOKEN ghcr.io
+        docker push ghcr.io/bettercodepaul/petclinic:latest
         #### AUFGABE 3 COMPILE, DOCKER BUILD UND PUSH
           # hier ist Platz für maven package und docker build
