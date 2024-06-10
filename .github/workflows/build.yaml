@@ -5,6 +5,7 @@ env:
   # Tip: Die Token/der API-Key werden als Secrets in den Repository-Settings eingetragen und hier referenziert.
   GITHUB_TOKEN: ${{ secrets.GIT_AT }} 
   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  GITHUB_ACCESSTOKEN: ${{ secrets.GIT_AT }} 
 jobs:
   compile:
     name: Compile
@@ -24,6 +25,6 @@ jobs:
       run: |
         mvn package
         docker build --tag ghcr.io/felixanslinger/pet-clinic:latest -f Dockerfile .
-        docker login --username felixanslinger --password $GIT_AT ghcr.io
+        docker login --username felixanslinger --password $GITHUB_ACCESSTOKEN ghcr.io
         docker push ghcr.io/felixanslinger/pet-clinic:latest
 
